@@ -74,3 +74,10 @@
     background-position: center;
   }
 }
+
+.speakerBackgroundImg {
+  background-image: url("./assets/home/mobile/image-speaker-zx7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
