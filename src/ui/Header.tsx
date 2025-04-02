@@ -1,5 +1,5 @@
 import hamburgerIcon from "../assets/shared/tablet/icon-hamburger.svg";
-import audioPhileLogo from "../assets/shared/desktop/logo.svg";
+import Logo from "./Logo";
 
 function Header() {
   return (
@@ -9,8 +9,7 @@ function Header() {
           <img src={hamburgerIcon} alt="" />
         </button>
 
-        <img src={audioPhileLogo} alt="Audiophile logo" />
-
+        <Logo />
         <button>
           <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
