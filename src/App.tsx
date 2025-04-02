@@ -20,24 +20,6 @@ export default App;
 
 // https://67ecd13789990cabc023849b--elegant-moxie-e8615c.netlify.app/data.json
 
-// Home
-//   Headphones
-//   Speakers
-//   Earphones
-
-//   Headphones
-//   Shop
-
-//   Speakers
-//   Shop
-
-//   Earphones
-//   Shop
-
-//   ZX9 speaker
-//   Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
-//   See product
-
 //   ZX7 speaker
 //   See product
 
