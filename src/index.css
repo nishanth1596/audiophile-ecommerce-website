@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-PrimaryColor: #d87d4a;
+  --color-SecondaryColor: #fbaf85;
+  --color-PureBlack: #000000;
+  --color-Black: #101010;
+  --color-LightGray: #f1f1f1;
+  --color-OffWhite: #fafafa;
+  --color-White: #ffffff;
+
+  /* Font famil */
+  --default-font-family: "Manrope", "sans-serif";
+}
+
+@layer components {
+  .Overline {
+    @apply text-sm leading-[1.19rem] font-medium tracking-[10px] uppercase;
+  }
+
+  .subTitle {
+    @apply text-[0.812rem] leading-[1.56rem] font-bold tracking-[1px] uppercase;
+  }
+}
+
+/* @layer utilities {
+  h1 {
+    @apply text-[3.5rem] leading-[3.625rem] font-bold tracking-[2px] uppercase;
+  }
+
+  h2 {
+    @apply leading-11 font-bold tracking-[1.5px] uppercase md:text-[2.5rem];
+  }
+
+  h3 {
+    @apply text-[2rem] leading-9 font-bold tracking-[1.15px] uppercase;
+  }
+
+  h4 {
+    @apply text-[1.75rem] leading-[2.375rem] font-bold tracking-[2px] uppercase;
+  }
+
+  h5 {
+    @apply text-2xl leading-[2.06rem] font-bold tracking-[1.7px] uppercase;
+  }
+
+  h6 {
+    @apply text-lg leading-6 font-bold tracking-[1.3px] uppercase;
+  }
+
+  p {
+    @apply text-[0.94rem] leading-[1.56rem] font-medium;
+  }
+} */
+
+.headphoneBackgroundImg {
+  background-image: url("./assets/home/mobile/image-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+@media (min-width: 768px) {
+  .headphoneBackgroundImg {
+    background-image: url("./assets/home/tablet/image-header.jpg");
+    background-position: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headphoneBackgroundImg {
+    background-image: url("./assets/home/desktop/image-hero.jpg");
+    background-position: center;
+  }
+}
