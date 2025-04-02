@@ -20,9 +20,6 @@ export default App;
 
 // https://67ecd13789990cabc023849b--elegant-moxie-e8615c.netlify.app/data.json
 
-//   ZX7 speaker
-//   See product
-
 //   YX1 earphones
 //   See product
 
