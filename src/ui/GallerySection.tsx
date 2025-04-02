@@ -1,25 +1,28 @@
-import { Link } from "react-router-dom";
+import GalleryCategoryCard from "./GalleryCategoryCard";
+import headphoneImg from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
+import speakerMobileImg from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
+import earphonesMobileImg from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 
 function GallerySection() {
   return (
-    <section className="mx-6 mt-10">
-      <div className="bg-LightGray relative rounded-lg text-center">
-        <h3 className="text-PureBlack pt-[5.5rem] text-[0.94rem] leading-5 font-bold tracking-[1.07px] uppercase">
-          Headphones
-        </h3>
-        <Link to="/" className="mt-4 flex items-center justify-center">
-          <span className="text font-bold opacity-50">shop</span>
-          <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M1.322 1l5 5-5 5"
-              stroke="#D87D4A"
-              stroke-width="2"
-              fill="none"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </Link>
-      </div>
+    <section className="mx-6 mt-[5.75rem] space-y-[4.25rem]">
+      <GalleryCategoryCard
+        image={headphoneImg}
+        title="Headphone"
+        navigateTo="/headphones"
+      />
+
+      <GalleryCategoryCard
+        image={speakerMobileImg}
+        title="speakers"
+        navigateTo="/speakers"
+      />
+
+      <GalleryCategoryCard
+        image={earphonesMobileImg}
+        title="earphones"
+        navigateTo="/earphones"
+      />
     </section>
   );
 }
