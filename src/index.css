@@ -14,7 +14,15 @@
   --default-font-family: "Manrope", "sans-serif";
 }
 
-@layer components {
+@layer utilities {
+  h4 {
+    @apply text-[1.75rem] leading-[2.375rem] font-bold tracking-[2px] uppercase;
+  }
+
+  p {
+    @apply text-[0.94rem] leading-[1.56rem] font-medium tracking-normal opacity-75;
+  }
+
   .Overline {
     @apply text-sm leading-[1.19rem] font-medium tracking-[10px] uppercase;
   }
@@ -22,10 +30,8 @@
   .subTitle {
     @apply text-[0.812rem] leading-[1.56rem] font-bold tracking-[1px] uppercase;
   }
-}
 
-/* @layer utilities {
-  h1 {
+  /* h1 {
     @apply text-[3.5rem] leading-[3.625rem] font-bold tracking-[2px] uppercase;
   }
 
@@ -51,8 +57,8 @@
 
   p {
     @apply text-[0.94rem] leading-[1.56rem] font-medium;
-  }
-} */
+  } */
+}
 
 .headphoneBackgroundImg {
   background-image: url("./assets/home/mobile/image-header.jpg");

@@ -13,9 +13,9 @@ function GalleryCategoryCard({
 }: GalleryCategoryCardProps) {
   return (
     <div className="bg-LightGray relative rounded-lg pt-[5.5rem] pb-[1.375rem] text-center">
-      <h3 className="text-PureBlack text-[0.94rem] leading-5 font-bold tracking-[1.07px] uppercase">
+      <h2 className="text-PureBlack text-[0.94rem] leading-5 font-bold tracking-[1.07px] uppercase">
         {title}
-      </h3>
+      </h2>
 
       <img
         src={image}
@@ -34,9 +34,9 @@ function GalleryCategoryCard({
           <path
             d="M1.322 1l5 5-5 5"
             stroke="#D87D4A"
-            stroke-width="2"
+            strokeWidth="2"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </svg>
       </Link>
