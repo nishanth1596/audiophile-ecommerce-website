@@ -21,7 +21,7 @@ function ProductShowcase() {
           Zx9 <span className="block">speaker</span>
         </h3>
 
-        <p className="text-White mt-6 mb-6 px-6 text-[0.94rem] leading-[1.56rem] font-medium tracking-[0px] opacity-75">
+        <p className="text-White mt-6 mb-6 px-6">
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
@@ -30,17 +30,17 @@ function ProductShowcase() {
           navigateTo="/"
           backgroundColor="#000000"
           textColor="#fff"
+          isBorderRequired={false}
         />
       </article>
 
       <article className="bg-LightGray speakerBackgroundImg mt-6 rounded-lg px-6 py-[6.31rem]">
-        <h3 className="mb-8 text-[1.75rem] leading-[2.375rem] font-bold tracking-[2px] uppercase">
-          ZX7 speaker
-        </h3>
+        <h4 className="mb-8">ZX7 speaker</h4>
         <SeeProductNavLink
           navigateTo="/"
           backgroundColor=" #f1f1f1"
           textColor="#000"
+          isBorderRequired={false}
         />
       </article>
 
@@ -52,13 +52,12 @@ function ProductShowcase() {
         />
 
         <div className="bg-LightGray mt-6 rounded-lg px-6 py-10">
-          <h3 className="mb-8 text-[1.75rem] leading-[2.375rem] font-bold tracking-[2px] uppercase">
-            yx1 Earphones
-          </h3>
+          <h4 className="mb-8">yx1 Earphones</h4>
           <SeeProductNavLink
             backgroundColor="#f1f1f1"
             navigateTo="/"
             textColor="#000"
+            isBorderRequired={false}
           />
         </div>
       </article>
