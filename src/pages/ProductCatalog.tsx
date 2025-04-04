@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchProductData } from "../services/apiProductdata";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import { ProductProps } from "../ui/ProductCategoryPage";
+import RelatedProductsItem from "../ui/RelatedProductsItem";
 
 function ProductCatalog() {
   const { id } = useParams();
@@ -120,9 +121,27 @@ function ProductCatalog() {
         </div>
       </article>
 
-      <article></article>
+      <article className="mt-[7.5rem] text-center">
+        <h5>You may also like</h5>
+        <div className="space-y-14">
+          {selectedProduct?.others.map((product) => {
+            const relatedProduct = data?.find((p) => p.slug === product.slug);
+
+            return (
+              <RelatedProductsItem
+                key={product.slug}
+                relatedImage={product.image}
+                title={product.name}
+                navigateTo={`/${relatedProduct?.category}/${relatedProduct?.id}/${product.slug}`}
+              />
+            );
+          })}
+        </div>
+      </article>
     </section>
   );
 }
+// http://localhost:5173/4/xx99-mark-two-headphones
+// http://localhost:5173/headphones/4/xx99-mark-two-headphones
 
 export default ProductCatalog;
