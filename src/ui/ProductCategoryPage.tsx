@@ -75,6 +75,9 @@ function ProductCategoryPage({ name }: ProductCategoryPageProps) {
           productImage={product.image}
           description={product.description}
           newProduct={product.new}
+          slug={product.slug}
+          category={product.category}
+          id={product.id}
         />
       ))}
     </section>

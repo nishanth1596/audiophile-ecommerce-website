@@ -9,6 +9,9 @@ type ProductCategoryPageItemProps = {
   name: string;
   description: string;
   newProduct: boolean;
+  slug: string;
+  category: string;
+  id: number;
 };
 
 function ProductCategoryPageItem({
@@ -16,6 +19,9 @@ function ProductCategoryPageItem({
   name,
   description,
   newProduct,
+  slug,
+  category,
+  id,
 }: ProductCategoryPageItemProps) {
   // const { mobile, desktop, tablet } = productImage;
   const { mobile } = productImage;
@@ -34,7 +40,7 @@ function ProductCategoryPageItem({
 
         <SeeProductNavLink
           backgroundColor="#d87d4a"
-          navigateTo="/combacklater"
+          navigateTo={`/${category}/${id}/${slug}`}
           textColor="#fff"
           isBorderRequired={false}
         />
