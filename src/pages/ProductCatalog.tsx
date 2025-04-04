@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchProductData } from "../services/apiProductdata";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import { ProductProps } from "../ui/ProductCategoryPage";
 import RelatedProductsItem from "../ui/RelatedProductsItem";
+import GoBackButton from "../ui/GoBackButton";
 
 function ProductCatalog() {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { data, isLoading } = useQuery<ProductProps[]>({
     queryKey: ["ProductData"],
@@ -30,12 +30,7 @@ function ProductCatalog() {
 
   return (
     <section className="mx-6">
-      <button
-        onClick={() => navigate(-1)}
-        className="text-PureBlack mt-4 inline-block text-[0.94rem] leading-[1.56rem] capitalize opacity-50"
-      >
-        Go back
-      </button>
+      <GoBackButton />
 
       <picture>
         <source srcSet={updatedMobileImgPath} media="(max-width:767px)" />
