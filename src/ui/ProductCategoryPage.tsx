@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProductData } from "../services/apiProductdata";
 import LoadingSpinner from "./LoadingSpinner";
 import ProductCategoryPageItem from "./ProductCategoryPageItem";
+import { useEffect } from "react";
 
 export type ProductProps = {
   id: number;
@@ -40,7 +41,7 @@ export type ProductProps = {
 };
 
 type ProductCategoryPageProps = {
-  name: string;
+  name: string | undefined;
 };
 
 function ProductCategoryPage({ name }: ProductCategoryPageProps) {
@@ -48,6 +49,10 @@ function ProductCategoryPage({ name }: ProductCategoryPageProps) {
     queryKey: ["ProductData"],
     queryFn: fetchProductData,
   });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scrolling to top
+  }, [name]);
 
   if (isLoading) return <LoadingSpinner />;
 

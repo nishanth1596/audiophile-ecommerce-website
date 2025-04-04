@@ -2,18 +2,18 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./ui/Layout";
 import Checkout from "./pages/Checkout";
 import Homepage from "./pages/Homepage";
-import Headphones from "./pages/Headphones";
-import Speakers from "./pages/Speakers";
-import Earphones from "./pages/Earphones";
+// import Headphones from "./pages/Headphones";
+// import Speakers from "./pages/Speakers";
+// import Earphones from "./pages/Earphones";
+import Product from "./pages/Product";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="/headphones" element={<Headphones />} />
-        <Route path="/speakers" element={<Speakers />} />
-        <Route path="/earphones" element={<Earphones />} />
+        <Route path="/:category" element={<Product />} />
+
         <Route path="/checkout" element={<Checkout />} />
       </Route>
     </Routes>

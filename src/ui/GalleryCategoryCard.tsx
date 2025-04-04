@@ -26,7 +26,6 @@ function GalleryCategoryCard({
       <Link
         to={navigateTo}
         className="mt-4 flex items-center justify-center gap-3.5"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <span className="text-[0.81rem] leading-[1.125rem] font-bold tracking-[1px] uppercase opacity-50">
           shop
