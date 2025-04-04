@@ -19,6 +19,10 @@
     @apply text-[1.75rem] leading-[2.375rem] font-bold tracking-[2px] uppercase;
   }
 
+  h5 {
+    @apply text-2xl leading-9 font-bold tracking-[0.86px] uppercase;
+  }
+
   p {
     @apply text-[0.94rem] leading-[1.56rem] font-medium tracking-normal opacity-75;
   }

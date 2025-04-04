@@ -1,4 +1,4 @@
-import ProductShowcase from "../feature/Headphones/ProductShowcase";
+import ProductShowcase from "../feature/Product/ProductShowcase";
 import HeroSection from "../ui/HeroSection";
 
 function Homepage() {
