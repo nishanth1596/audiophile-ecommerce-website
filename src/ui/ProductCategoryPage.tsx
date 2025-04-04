@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import ProductCategoryPageItem from "../ui/ProductCategoryPageItem";
 import { fetchProductData } from "../services/apiProductdata";
-import LoadingSpinner from "../ui/LoadingSpinner";
+import LoadingSpinner from "./LoadingSpinner";
+import ProductCategoryPageItem from "./ProductCategoryPageItem";
+import { useEffect } from "react";
 
-type ProductProps = {
+export type ProductProps = {
   id: number;
   slug: string;
   name: string;
@@ -39,27 +40,35 @@ type ProductProps = {
   }[];
 };
 
-function Headphones() {
+type ProductCategoryPageProps = {
+  name: string | undefined;
+};
+
+function ProductCategoryPage({ name }: ProductCategoryPageProps) {
   const { data, isLoading } = useQuery({
     queryKey: ["ProductData"],
     queryFn: fetchProductData,
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scrolling to top
+  }, [name]);
+
   if (isLoading) return <LoadingSpinner />;
 
-  // Filtering headphones from the product data
-  const headphonesData = data.filter(
-    (item: ProductProps) => item.category === "headphones",
+  // Filtering products from the product data
+  const productData = data.filter(
+    (item: ProductProps) => item.category === name,
   );
 
-  // Sorting headphones based on their price in the descending order
-  const headphones = [...headphonesData].sort((a, b) => b.price - a.price);
+  // Sorting products based on their price in the descending order
+  const products = [...productData].sort((a, b) => b.price - a.price);
 
   return (
     <section className="text-center">
-      <h4 className="bg-PureBlack text-White py-8">Headphones</h4>
+      <h4 className="bg-PureBlack text-White py-8">{name}</h4>
 
-      {headphones.map((product: ProductProps) => (
+      {products.map((product: ProductProps) => (
         <ProductCategoryPageItem
           name={product.name}
           key={product.id}
@@ -72,4 +81,4 @@ function Headphones() {
   );
 }
 
-export default Headphones;
+export default ProductCategoryPage;
