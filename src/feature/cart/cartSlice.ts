@@ -86,7 +86,10 @@ const cartSlice = createSlice({
         cartItem.quantity += quantity;
         cartItem.totalPrice = quantity * unitPrice;
       } else {
-        state.cart.push(action.payload);
+        state.cart.push({
+          ...action.payload,
+          totalPrice: quantity * unitPrice,
+        });
       }
     },
 

@@ -11,7 +11,7 @@ import { addToCart } from "../feature/cart/cartSlice";
 import IncreaseDecreaseQuantityBtn from "../ui/IncreaseDecreaseQuantityBtn";
 
 function ProductCatalog() {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState<number>(0);
   const { id } = useParams();
 
   const dispatch = useDispatch();

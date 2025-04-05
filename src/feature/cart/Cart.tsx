@@ -19,6 +19,8 @@ function Cart({ setShowCart }: CartProps) {
     .map((item) => item.totalPrice)
     .reduce((acc, cur) => acc + cur, 0);
 
+  console.log(cart);
+
   function handleCheckoutButton() {
     navigate("/checkout");
     setShowCart();
