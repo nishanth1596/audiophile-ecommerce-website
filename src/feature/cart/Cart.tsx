@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import { getCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 type CartProps = {
   setShowCart: () => void;
@@ -19,26 +20,41 @@ function Cart({ setShowCart }: CartProps) {
     .map((item) => item.totalPrice)
     .reduce((acc, cur) => acc + cur, 0);
 
-  console.log(cart);
+  const cartRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (cartNumItems === 0) {
+      setShowCart();
+    }
+
+    // close the cart if clicking outside
+    function handleClickOutside(event: MouseEvent) {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setShowCart();
+      }
+    }
+
+    // Attach event Listener to document
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up function
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [cartNumItems, setShowCart]);
 
   function handleCheckoutButton() {
     navigate("/checkout");
     setShowCart();
   }
 
-  function handleBackdropClick(event: React.MouseEvent) {
-    if (event.target === event.currentTarget) {
-      setShowCart();
-    }
-  }
-
   return createPortal(
     <section className="">
-      <div
-        className="bg-opacity-50 absolute top-0 left-0 mt-20 h-full w-full bg-black/50 backdrop-blur-md"
-        onClick={handleBackdropClick}
-      >
-        <div className="relative z-10 mx-6 mt-6 rounded-md bg-white px-7 py-8 shadow-lg">
+      <div className="bg-opacity-50 absolute top-0 left-0 mt-20 h-full w-full bg-black/50 backdrop-blur-md">
+        <div
+          ref={cartRef}
+          className="relative z-10 mx-6 mt-6 rounded-md bg-white px-7 py-8 shadow-lg"
+        >
           <div className="flex justify-between">
             <h5 className="text-lg leading-[1.56rem] tracking-[1.29px]">
               {" "}
