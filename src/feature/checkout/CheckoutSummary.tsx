@@ -4,7 +4,6 @@ import { CartItemProps, getCart } from "../cart/cartSlice";
 
 function CheckoutSummary() {
   const cart = useSelector(getCart);
-  console.log(cart);
 
   const shippingCharge = 50;
   const cartAmount = cart

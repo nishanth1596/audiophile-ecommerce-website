@@ -1,32 +1,58 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductData } from "../services/apiProductdata";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import { ProductProps } from "../ui/ProductCategoryPage";
 import RelatedProductsItem from "../ui/RelatedProductsItem";
 import GoBackButton from "../ui/GoBackButton";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../feature/cart/cartSlice";
 
 function ProductCatalog() {
+  const [quantity, setQuantity] = useState(0);
   const { id } = useParams();
+
+  const dispatch = useDispatch();
 
   const { data, isLoading } = useQuery<ProductProps[]>({
     queryKey: ["ProductData"],
     queryFn: fetchProductData,
   });
 
+  const selectedProduct = data?.find((item) => item.id === parseInt(id ?? ""));
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  if (isLoading) return <LoadingSpinner />;
-
-  const selectedProduct = data?.find((item) => item.id === parseInt(id ?? ""));
 
   const updatedMobileImgPath = selectedProduct?.categoryImage.mobile.replace(
     "./assets/",
     "/src/assets/",
   );
+
+  function handleAddToCart() {
+    const newItems = {
+      id: selectedProduct?.id,
+      unitPrice: selectedProduct?.price,
+      image: selectedProduct?.image,
+      title: selectedProduct?.name,
+      quantity: quantity,
+    };
+
+    dispatch(addToCart(newItems));
+    setQuantity(0);
+  }
+
+  function handleDecreaseQuantity() {
+    setQuantity((value) => (value >= 1 ? value - 1 : value));
+  }
+
+  function handleIncreaseQuantity() {
+    setQuantity((value) => value + 1);
+  }
+
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <section className="mx-6">
@@ -52,16 +78,29 @@ function ProductCatalog() {
 
       <div className="mt-[31px] flex w-full items-center gap-4">
         <div className="bg-LightGray flex w-full items-center justify-center gap-5 px-[15.5px] py-[15px]">
-          <button className="inline-block w-4 opacity-25">&#8722;</button>
+          <button
+            className="inline-block w-4 opacity-25"
+            onClick={handleDecreaseQuantity}
+          >
+            &#8722;
+          </button>
 
           <span className="w-4 text-[13px] leading-[18px] font-bold tracking-[1px]">
-            X
+            {quantity}
           </span>
 
-          <button className="inline-block w-4 opacity-25">&#43;</button>
+          <button
+            className="inline-block w-4 opacity-25"
+            onClick={handleIncreaseQuantity}
+          >
+            &#43;
+          </button>
         </div>
 
-        <button className="bg-PrimaryColor text-White w-full py-[15px] pr-[30.5px] pl-[34.5px] text-[13px] leading-[18px] font-bold tracking-[1px] uppercase">
+        <button
+          className="bg-PrimaryColor text-White w-full py-[15px] pr-[30.5px] pl-[34.5px] text-[13px] leading-[18px] font-bold tracking-[1px] uppercase"
+          onClick={handleAddToCart}
+        >
           Add to cart
         </button>
       </div>
@@ -136,7 +175,5 @@ function ProductCatalog() {
     </section>
   );
 }
-// http://localhost:5173/4/xx99-mark-two-headphones
-// http://localhost:5173/headphones/4/xx99-mark-two-headphones
 
 export default ProductCatalog;
