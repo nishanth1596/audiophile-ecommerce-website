@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom";
 import CartItem from "./CartItem";
 
-import { useSelector } from "react-redux";
-import { getCart } from "./cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart, removeCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
@@ -13,6 +13,7 @@ type CartProps = {
 function Cart({ setShowCart }: CartProps) {
   const cart = useSelector(getCart);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cartNumItems = cart.length;
 
@@ -60,7 +61,10 @@ function Cart({ setShowCart }: CartProps) {
               {" "}
               cart({cartNumItems})
             </h5>
-            <button className="text-[0.94rem] leading-[1.56rem] font-medium underline opacity-50">
+            <button
+              onClick={() => dispatch(removeCart())}
+              className="text-[0.94rem] leading-[1.56rem] font-medium underline opacity-50"
+            >
               Remove all
             </button>
           </div>

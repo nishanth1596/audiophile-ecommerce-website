@@ -118,10 +118,15 @@ const cartSlice = createSlice({
         cartItem.totalPrice = cartItem.quantity * cartItem.unitPrice;
       }
     },
+
+    removeCart(state) {
+      state.cart = [];
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addToCart, increaseCart, decreaseCart } = cartSlice.actions;
+export const { addToCart, increaseCart, decreaseCart, removeCart } =
+  cartSlice.actions;
 
 export const getCart = (store: RootState) => store.cart.cart;
