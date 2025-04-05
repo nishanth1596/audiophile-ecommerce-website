@@ -2,9 +2,14 @@ import { useState } from "react";
 import hamburgerIcon from "../assets/shared/tablet/icon-hamburger.svg";
 import Logo from "./Logo";
 import Cart from "../feature/cart/Cart";
+import { useSelector } from "react-redux";
+import { getCart } from "../feature/cart/cartSlice";
 
 function Header() {
   const [showCart, setShowCart] = useState(false);
+
+  const cart = useSelector(getCart);
+  const cartNumItems = cart.length;
 
   return (
     <>
@@ -32,7 +37,7 @@ function Header() {
               />
             </svg>
             <span className="bg-SecondaryColor absolute top-0 right-0 flex aspect-square h-5 min-h-[20px] w-5 min-w-[20px] translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-xs text-white">
-              1
+              {cartNumItems}
             </span>
           </button>
         </div>
