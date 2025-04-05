@@ -82,6 +82,7 @@ function ProductCatalog() {
           handleDecreaseQuantity={handleDecreaseQuantity}
           handleIncreaseQuantity={handleIncreaseQuantity}
           quantity={quantity}
+          isOnCart={false}
         />
 
         <button
