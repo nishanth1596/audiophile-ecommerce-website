@@ -8,6 +8,7 @@ import RelatedProductsItem from "../ui/RelatedProductsItem";
 import GoBackButton from "../ui/GoBackButton";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../feature/cart/cartSlice";
+import IncreaseDecreaseQuantityBtn from "../ui/IncreaseDecreaseQuantityBtn";
 
 function ProductCatalog() {
   const [quantity, setQuantity] = useState(0);
@@ -77,25 +78,11 @@ function ProductCatalog() {
       </p>
 
       <div className="mt-[31px] flex w-full items-center gap-4">
-        <div className="bg-LightGray flex w-full items-center justify-center gap-5 px-[15.5px] py-[15px]">
-          <button
-            className="inline-block w-4 opacity-25"
-            onClick={handleDecreaseQuantity}
-          >
-            &#8722;
-          </button>
-
-          <span className="w-4 text-[13px] leading-[18px] font-bold tracking-[1px]">
-            {quantity}
-          </span>
-
-          <button
-            className="inline-block w-4 opacity-25"
-            onClick={handleIncreaseQuantity}
-          >
-            &#43;
-          </button>
-        </div>
+        <IncreaseDecreaseQuantityBtn
+          handleDecreaseQuantity={handleDecreaseQuantity}
+          handleIncreaseQuantity={handleIncreaseQuantity}
+          quantity={quantity}
+        />
 
         <button
           className="bg-PrimaryColor text-White w-full py-[15px] pr-[30.5px] pl-[34.5px] text-[13px] leading-[18px] font-bold tracking-[1px] uppercase"
