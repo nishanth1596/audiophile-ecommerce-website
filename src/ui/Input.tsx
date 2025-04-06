@@ -1,12 +1,24 @@
+import { FieldValues, UseFormRegister } from "react-hook-form";
+
 type InputProps = {
   id: string;
   title: string;
   inputType: string;
   placeholder: string;
   marginTop?: string;
+  requiredMessage: string;
+  register: UseFormRegister<FieldValues>;
 };
 
-function Input({ id, title, inputType, placeholder, marginTop }: InputProps) {
+function Input({
+  id,
+  title,
+  inputType,
+  placeholder,
+  marginTop,
+  register,
+  requiredMessage,
+}: InputProps) {
   return (
     <>
       <label
@@ -18,7 +30,7 @@ function Input({ id, title, inputType, placeholder, marginTop }: InputProps) {
       </label>
       <input
         type={inputType}
-        // type=""
+        {...register(id, { required: requiredMessage })}
         placeholder={placeholder}
         className="border-MediumGray text-Black/40 mt-[9px] block w-full rounded-lg border-[1px] pt-[18px] pb-[19px] pl-6 text-sm leading-[1.19rem] font-bold tracking-[-0.25px]"
       />

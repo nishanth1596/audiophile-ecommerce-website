@@ -1,14 +1,21 @@
+import { useForm } from "react-hook-form";
 import CheckoutSummary from "../feature/checkout/CheckoutSummary";
 import GoBackButton from "../ui/GoBackButton";
 import Input from "../ui/Input";
 
 function Checkout() {
+  const { register, handleSubmit } = useForm();
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
   return (
     <section className="bg-OffWhite mx-4 mt-4">
       <GoBackButton />
 
       <article className="mt-6 rounded-lg pb-8">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="bg-White px-6 pt-6">
             <h4 className="tracking-[1px]">Checkout</h4>
             <p className="subTitle text-PrimaryColor mt-8">Billing details</p>
@@ -18,6 +25,8 @@ function Checkout() {
               title="Name"
               id="name"
               marginTop="17px"
+              register={register}
+              requiredMessage="Name is required"
             />
 
             <Input
@@ -26,6 +35,8 @@ function Checkout() {
               placeholder="alexei@mail.com"
               title="Email Address"
               marginTop="24px"
+              register={register}
+              requiredMessage="Email is required"
             />
 
             <Input
@@ -34,23 +45,29 @@ function Checkout() {
               placeholder="+1 202-555-0136"
               title="Phone Number"
               marginTop="24px"
+              register={register}
+              requiredMessage="Phone number is required"
             />
 
             <p className="subTitle text-PrimaryColor mt-8">Shipping info</p>
             <Input
               id="address"
-              inputType="url"
+              inputType="text"
               placeholder="1137 Williams Avenue"
               title="Your Address"
               marginTop="24px"
+              register={register}
+              requiredMessage="Address is required"
             />
 
             <Input
-              id="zipCode"
+              id="zipcode"
               inputType="text"
               placeholder="10001"
               title="ZIP Code"
               marginTop="24px"
+              register={register}
+              requiredMessage="Zipcode is required"
             />
 
             <Input
@@ -59,6 +76,8 @@ function Checkout() {
               placeholder="New York"
               title="City"
               marginTop="24px"
+              register={register}
+              requiredMessage="City is required"
             />
 
             <Input
@@ -67,6 +86,8 @@ function Checkout() {
               placeholder="United States"
               title="Country"
               marginTop="24px"
+              register={register}
+              requiredMessage="Country is required"
             />
 
             <p className="subTitle text-PrimaryColor mt-8">Payment Details</p>
@@ -114,6 +135,8 @@ function Checkout() {
               placeholder="238532993"
               title="e-Money Number"
               marginTop="24px"
+              register={register}
+              requiredMessage="e-Money number is required"
             />
 
             <Input
@@ -122,6 +145,8 @@ function Checkout() {
               placeholder="6891"
               title="e-Money PIN"
               marginTop="24px"
+              register={register}
+              requiredMessage="e-Money pin is required"
             />
           </div>
 
