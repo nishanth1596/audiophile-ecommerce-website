@@ -5,8 +5,13 @@ import CheckoutSummaryItem from "../checkout/checkoutSummaryItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, startNewOrder } from "../cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-function OrderSuccess() {
+type OrderSuccessProps = {
+  setIsOrderSuccess: (value: boolean) => void;
+};
+
+function OrderSuccess({ setIsOrderSuccess }: OrderSuccessProps) {
   const cart = useSelector(getCart);
   const remainingNumItems = cart.length - 1;
 
@@ -21,7 +26,12 @@ function OrderSuccess() {
   function handleButtonClick() {
     dispatch(startNewOrder());
     navigate("/");
+    setIsOrderSuccess(false);
   }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return createPortal(
     <div className="bg-Black/50 absolute inset-0 items-center justify-center">
@@ -44,9 +54,11 @@ function OrderSuccess() {
               img={cart[0].image}
             />
 
-            <p className="border-t-Black/10 mt-3 border-t-[1px] pt-3 text-center text-xs leading-4 font-bold tracking-[-0.21px] opacity-50">
-              and {remainingNumItems} other item(s)
-            </p>
+            {remainingNumItems > 1 && (
+              <p className="border-t-Black/10 mt-3 border-t-[1px] pt-3 text-center text-xs leading-4 font-bold tracking-[-0.21px] opacity-50">
+                and {remainingNumItems} other item(s)
+              </p>
+            )}
           </div>
 
           <h6 className="text-White bg-PureBlack px-6 pt-3.5 pb-5 leading-[1.56rem]">

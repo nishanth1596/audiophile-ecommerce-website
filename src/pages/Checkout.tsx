@@ -227,7 +227,7 @@ function Checkout() {
         </form>
       </article>
 
-      {isOrderSuccess && <OrderSuccess />}
+      {isOrderSuccess && <OrderSuccess setIsOrderSuccess={setIsOrderSuccess} />}
     </section>
   );
 }
