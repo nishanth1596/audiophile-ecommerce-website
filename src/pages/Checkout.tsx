@@ -3,10 +3,23 @@ import CheckoutSummary from "../feature/checkout/CheckoutSummary";
 import GoBackButton from "../ui/GoBackButton";
 import Input from "../ui/Input";
 
-function Checkout() {
-  const { register, handleSubmit } = useForm();
+export type CheckoutFormData = {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  zipcode: string;
+  city: string;
+  country: string;
+  paymentMethod: "eMoney" | "cod"; // This could either be "eMoney" or "cod"
+  eMoneyNumber: string;
+  eMoneyPin: string;
+};
 
-  function onSubmit(data) {
+function Checkout() {
+  const { register, handleSubmit } = useForm<CheckoutFormData>();
+
+  function onSubmit(data: CheckoutFormData) {
     console.log(data);
   }
 

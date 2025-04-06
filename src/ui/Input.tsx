@@ -1,13 +1,14 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
+import { CheckoutFormData } from "../pages/Checkout";
 
 type InputProps = {
-  id: string;
+  id: keyof CheckoutFormData;
   title: string;
   inputType: string;
   placeholder: string;
   marginTop?: string;
   requiredMessage: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<CheckoutFormData>;
 };
 
 function Input({
