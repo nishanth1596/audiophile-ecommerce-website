@@ -17,6 +17,8 @@ function CheckoutSummaryItem({
   const tablet = img.tablet?.replace("./assets/", "/src/assets/");
   const desktop = img.desktop?.replace("./assets/", "/src/assets/");
 
+  const formattedPrice = price.toLocaleString();
+
   return (
     <div className="flex items-center gap-4">
       <picture>
@@ -32,9 +34,9 @@ function CheckoutSummaryItem({
       <div className="flex w-full items-start justify-between">
         <div>
           <p className="font-bold opacity-100">{title}</p>
-          <p className="text-sm font-bold opacity-50">&#36; {price}</p>
+          <p className="text-sm font-bold opacity-50">&#36; {formattedPrice}</p>
         </div>
-        <p className="op50 font-bold">x{quantity}</p>
+        <p className="font-bold opacity-50">x{quantity}</p>
       </div>
     </div>
   );
