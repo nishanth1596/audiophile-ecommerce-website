@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import CheckoutSummary from "../feature/checkout/CheckoutSummary";
 import GoBackButton from "../ui/GoBackButton";
 import Input from "../ui/Input";
+import { useState } from "react";
+import OrderSuccess from "../feature/OrderSuccess/OrderSuccess";
 
 export type CheckoutFormData = {
   name: string;
@@ -17,10 +19,18 @@ export type CheckoutFormData = {
 };
 
 function Checkout() {
-  const { register, handleSubmit } = useForm<CheckoutFormData>();
+  const [isOrderSuccess, setIsOrderSuccess] = useState<boolean>(false);
 
-  function onSubmit(data: CheckoutFormData) {
-    console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<CheckoutFormData>();
+
+  function onSubmit() {
+    setIsOrderSuccess(true);
+    reset();
   }
 
   return (
@@ -40,6 +50,11 @@ function Checkout() {
               marginTop="17px"
               register={register}
               requiredMessage="Name is required"
+              error={errors?.name?.message}
+              pattern={{
+                value: /^[A-Za-z\s]+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <Input
@@ -50,6 +65,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="Email is required"
+              error={errors?.email?.message}
+              pattern={{
+                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Wrong Format",
+              }}
             />
 
             <Input
@@ -60,6 +80,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="Phone number is required"
+              error={errors?.phoneNumber?.message}
+              pattern={{
+                value: /^\d+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <p className="subTitle text-PrimaryColor mt-8">Shipping info</p>
@@ -71,6 +96,7 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="Address is required"
+              error={errors?.address?.message}
             />
 
             <Input
@@ -81,6 +107,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="Zipcode is required"
+              error={errors?.zipcode?.message}
+              pattern={{
+                value: /^\d+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <Input
@@ -91,6 +122,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="City is required"
+              error={errors?.city?.message}
+              pattern={{
+                value: /^[A-Za-z\s]+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <Input
@@ -101,6 +137,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="Country is required"
+              error={errors?.country?.message}
+              pattern={{
+                value: /^[A-Za-z\s]+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <p className="subTitle text-PrimaryColor mt-8">Payment Details</p>
@@ -108,9 +149,14 @@ function Checkout() {
             <div>
               <label
                 htmlFor="paymentMethod"
-                className="text-xs leading-4 font-bold tracking-[-0.21px]"
+                className="mt-4 flex w-full justify-between text-xs leading-4 font-bold tracking-[-0.21px]"
               >
                 Payment Method
+                {errors.paymentMethod && (
+                  <span className="text-Red text-xs leading-4 font-medium tracking-[-0.21px]">
+                    {errors.paymentMethod.message}
+                  </span>
+                )}
               </label>
 
               <label
@@ -122,7 +168,9 @@ function Checkout() {
                   className="accent-PrimaryColor peer"
                   id="eMoney"
                   value="eMoney"
-                  name="paymentMethod"
+                  {...register("paymentMethod", {
+                    required: "Please select a payment method",
+                  })}
                 />
                 <span className="block">e-Money</span>
               </label>
@@ -136,7 +184,9 @@ function Checkout() {
                   id="cod"
                   className="accent-PrimaryColor block"
                   value="cod"
-                  name="paymentMethod"
+                  {...register("paymentMethod", {
+                    required: "Please select a payment method",
+                  })}
                 />
                 <span>Cash on Delivery</span>
               </label>
@@ -150,6 +200,11 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="e-Money number is required"
+              error={errors?.eMoneyNumber?.message}
+              pattern={{
+                value: /^\d+$/,
+                message: "Wrong Format",
+              }}
             />
 
             <Input
@@ -160,12 +215,19 @@ function Checkout() {
               marginTop="24px"
               register={register}
               requiredMessage="e-Money pin is required"
+              error={errors?.eMoneyPin?.message}
+              pattern={{
+                value: /^\d+$/,
+                message: "Wrong Format",
+              }}
             />
           </div>
 
           <CheckoutSummary />
         </form>
       </article>
+
+      {isOrderSuccess && <OrderSuccess />}
     </section>
   );
 }
