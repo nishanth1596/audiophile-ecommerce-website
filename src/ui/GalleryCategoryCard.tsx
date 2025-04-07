@@ -1,16 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type GalleryCategoryCardProps = {
   title: string;
   image: string;
   navigateTo: string;
+  setIsMenuOpen?: (value: false) => void;
 };
 
 function GalleryCategoryCard({
   title,
   image,
   navigateTo,
+  setIsMenuOpen,
 }: GalleryCategoryCardProps) {
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    if (setIsMenuOpen) setIsMenuOpen(false);
+
+    navigate(navigateTo);
+  }
+
   return (
     <div className="bg-LightGray relative rounded-lg pt-[5.5rem] pb-[1.375rem] text-center">
       <h2 className="text-PureBlack text-[0.94rem] leading-5 font-bold tracking-[1.07px] uppercase">
@@ -23,9 +33,9 @@ function GalleryCategoryCard({
         className="absolute -top-11 right-1/2 h-[104px] translate-x-1/2"
       />
 
-      <Link
-        to={navigateTo}
-        className="mt-4 flex items-center justify-center gap-3.5"
+      <button
+        onClick={handleButtonClick}
+        className="mx-auto mt-4 flex items-center justify-center gap-3.5"
       >
         <span className="text-[0.81rem] leading-[1.125rem] font-bold tracking-[1px] uppercase opacity-50">
           shop
@@ -39,7 +49,7 @@ function GalleryCategoryCard({
             fillRule="evenodd"
           />
         </svg>
-      </Link>
+      </button>
     </div>
   );
 }

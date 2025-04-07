@@ -5,7 +5,7 @@ import Input from "../ui/Input";
 import { useState } from "react";
 import OrderSuccess from "../feature/OrderSuccess/OrderSuccess";
 
-import codIcon from "../../public/assets/checkout/icon-cash-on-delivery.svg";
+import codIcon from "/assets/checkout/icon-cash-on-delivery.svg";
 import { useSelector } from "react-redux";
 import { getCart } from "../feature/cart/cartSlice";
 import EmptyCartMessage from "../feature/cart/EmptyCart";
