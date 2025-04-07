@@ -5,6 +5,8 @@ import Input from "../ui/Input";
 import { useState } from "react";
 import OrderSuccess from "../feature/OrderSuccess/OrderSuccess";
 
+import codIcon from "../../public/assets/checkout/icon-cash-on-delivery.svg";
+
 export type CheckoutFormData = {
   name: string;
   email: string;
@@ -26,7 +28,11 @@ function Checkout() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<CheckoutFormData>();
+
+  const paymentMethod = watch("paymentMethod");
+  console.log(paymentMethod);
 
   function onSubmit() {
     setIsOrderSuccess(true);
@@ -39,7 +45,7 @@ function Checkout() {
 
       <article className="mt-6 rounded-lg pb-8">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="bg-White px-6 pt-6">
+          <div className="bg-White px-6 pt-6 pb-8">
             <h4 className="tracking-[1px]">Checkout</h4>
             <p className="subTitle text-PrimaryColor mt-8">Billing details</p>
             <Input
@@ -172,7 +178,9 @@ function Checkout() {
                     required: "Please select a payment method",
                   })}
                 />
-                <span className="block">e-Money</span>
+                <span className="tracking-[-0.25px]leading-[19px] block text-sm font-bold">
+                  e-Money
+                </span>
               </label>
 
               <label
@@ -188,39 +196,60 @@ function Checkout() {
                     required: "Please select a payment method",
                   })}
                 />
-                <span>Cash on Delivery</span>
+                <span className="tracking-[-0.25px]leading-[19px] block text-sm font-bold">
+                  Cash on Delivery
+                </span>
               </label>
             </div>
 
-            <Input
-              id="eMoneyNumber"
-              inputType="text"
-              placeholder="238532993"
-              title="e-Money Number"
-              marginTop="24px"
-              register={register}
-              requiredMessage="e-Money number is required"
-              error={errors?.eMoneyNumber?.message}
-              pattern={{
-                value: /^\d+$/,
-                message: "Wrong Format",
-              }}
-            />
+            {paymentMethod === "eMoney" && (
+              <>
+                <Input
+                  id="eMoneyNumber"
+                  inputType="text"
+                  placeholder="238532993"
+                  title="e-Money Number"
+                  marginTop="24px"
+                  register={register}
+                  requiredMessage="e-Money number is required"
+                  error={errors?.eMoneyNumber?.message}
+                  pattern={{
+                    value: /^\d+$/,
+                    message: "Wrong Format",
+                  }}
+                />
 
-            <Input
-              id="eMoneyPin"
-              inputType="password"
-              placeholder="6891"
-              title="e-Money PIN"
-              marginTop="24px"
-              register={register}
-              requiredMessage="e-Money pin is required"
-              error={errors?.eMoneyPin?.message}
-              pattern={{
-                value: /^\d+$/,
-                message: "Wrong Format",
-              }}
-            />
+                <Input
+                  id="eMoneyPin"
+                  inputType="password"
+                  placeholder="6891"
+                  title="e-Money PIN"
+                  marginTop="24px"
+                  register={register}
+                  requiredMessage="e-Money pin is required"
+                  error={errors?.eMoneyPin?.message}
+                  pattern={{
+                    value: /^\d+$/,
+                    message: "Wrong Format",
+                  }}
+                />
+              </>
+            )}
+
+            {paymentMethod === "cod" && (
+              <div className="mt-8 flex items-center gap-8">
+                <img
+                  src={codIcon}
+                  alt="Icon depicting you have selected Cash on Delivery as a payment method"
+                />
+                <p className="opacity-50">
+                  The ‘Cash on Delivery’ option enables you to pay in cash when
+                  our delivery courier arrives at your residence. Just make sure
+                  your address is correct so that your order will not be
+                  cancelled.
+                </p>
+              </div>
+            )}
           </div>
 
           <CheckoutSummary />
