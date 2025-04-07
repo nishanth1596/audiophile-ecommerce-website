@@ -1,13 +1,41 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import Cart from "../feature/cart/Cart";
 import { useSelector } from "react-redux";
 import { getCart } from "../feature/cart/cartSlice";
 
 import hamburgerIcon from "/assets/shared/tablet/icon-hamburger.svg";
+import GallerySection from "./GallerySection";
 
 function Header() {
   const [showCart, setShowCart] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close the menu when clicking outside of it or pressing the Escape key
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    function handleEscapePress(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    }
+
+    // Add event listeners on component mount
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscapePress);
+
+    // Cleanup function
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapePress);
+    };
+  }, []);
 
   const cart = useSelector(getCart);
   const cartNumItems = cart.length;
@@ -18,13 +46,32 @@ function Header() {
     setShowCart((show) => !show);
   }
 
+  function handleShowMenu() {
+    setIsMenuOpen((show) => !show);
+  }
+
   return (
     <>
       <header className="bg-Black text-White border-b-White/10 border-b-[1px] px-6 py-8">
         <div className="flex justify-between">
-          <button aria-label="Click to open">
+          <button
+            onClick={handleShowMenu}
+            aria-label={
+              isMenuOpen ? "Click to close menu" : "Click to open menu"
+            }
+          >
             <img src={hamburgerIcon} alt="" />
           </button>
+          {isMenuOpen && (
+            <div className="bg-PureBlack/50 absolute inset-0 mt-[90px]">
+              <div
+                className="bg-White text-PureBlack/75 absolute z-10 w-full rounded-b-lg pb-9"
+                ref={menuRef}
+              >
+                <GallerySection />
+              </div>
+            </div>
+          )}
 
           <Logo />
           <button className="relative" onClick={handleShowCart}>
