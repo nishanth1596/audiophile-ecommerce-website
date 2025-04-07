@@ -12,6 +12,12 @@ function Header() {
   const cart = useSelector(getCart);
   const cartNumItems = cart.length;
 
+  function handleShowCart() {
+    if (cartNumItems === 0) return;
+
+    setShowCart((show) => !show);
+  }
+
   return (
     <>
       <header className="bg-Black text-White border-b-White/10 border-b-[1px] px-6 py-8">
@@ -21,10 +27,7 @@ function Header() {
           </button>
 
           <Logo />
-          <button
-            className="relative"
-            onClick={() => setShowCart((show) => !show)}
-          >
+          <button className="relative" onClick={handleShowCart}>
             <svg
               width="23"
               height="20"
@@ -37,9 +40,11 @@ function Header() {
                 fillRule="nonzero"
               />
             </svg>
-            <span className="bg-SecondaryColor absolute top-0 right-0 flex aspect-square h-5 min-h-[20px] w-5 min-w-[20px] translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-xs text-white">
-              {cartNumItems}
-            </span>
+            {cartNumItems > 0 && (
+              <span className="bg-SecondaryColor absolute top-0 right-0 flex aspect-square h-5 min-h-[20px] w-5 min-w-[20px] translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-xs text-white">
+                {cartNumItems}
+              </span>
+            )}
           </button>
         </div>
       </header>
