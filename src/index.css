@@ -12,7 +12,7 @@
   --color-MediumGray: #cfcfcf;
   --color-Red: #cd2c2c;
 
-  /* Font famil */
+  /* Font famiy */
   --default-font-family: "Manrope", "sans-serif";
 }
 
@@ -67,7 +67,8 @@
 }
 
 .headphoneBackgroundImg {
-  background-image: url("./assets/home/mobile/image-header.jpg");
+  /* background-image: url("/assets/home/mobile/image-header.jpg"); */
+  background-image: url("/assets/home/mobile/image-header.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -75,20 +76,20 @@
 
 @media (min-width: 768px) {
   .headphoneBackgroundImg {
-    background-image: url("./assets/home/tablet/image-header.jpg");
+    background-image: url("/assets/home/tablet/image-header.jpg");
     background-position: center;
   }
 }
 
 @media (min-width: 1024px) {
   .headphoneBackgroundImg {
-    background-image: url("./assets/home/desktop/image-hero.jpg");
+    background-image: url("/assets/home/desktop/image-hero.jpg");
     background-position: center;
   }
 }
 
 .speakerBackgroundImg {
-  background-image: url("./assets/home/mobile/image-speaker-zx7.jpg");
+  background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
