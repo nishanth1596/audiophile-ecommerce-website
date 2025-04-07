@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCart, removeCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import toast from "react-hot-toast";
 
 type CartProps = {
   setShowCart: () => void;
@@ -45,8 +46,25 @@ function Cart({ setShowCart }: CartProps) {
   }, [cartNumItems, setShowCart]);
 
   function handleCheckoutButton() {
-    navigate("/checkout");
-    setShowCart();
+    toast.success("Redirecting to checkout...");
+
+    // Set a timeout to close the cart after the toast is removed
+    setTimeout(() => {
+      setShowCart();
+      navigate("/checkout");
+    }, 1500); // 1500ms for toast to disappear (this is the default duration for a toast)
+  }
+
+  function handleRemoveAll() {
+    dispatch(removeCart());
+
+    // Show a success toast for clearing the cart
+    toast.success("Cart cleared!");
+
+    // Set a timeout to remove the cart after the toast is removed
+    setTimeout(() => {
+      setShowCart();
+    }, 1500); // Wait for the toast to finish before closing the cart
   }
 
   return createPortal(
@@ -62,7 +80,7 @@ function Cart({ setShowCart }: CartProps) {
               cart({cartNumItems})
             </h5>
             <button
-              onClick={() => dispatch(removeCart())}
+              onClick={handleRemoveAll}
               className="text-[0.94rem] leading-[1.56rem] font-medium underline opacity-50"
             >
               Remove all

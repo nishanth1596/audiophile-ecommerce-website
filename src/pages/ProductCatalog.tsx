@@ -9,6 +9,7 @@ import GoBackButton from "../ui/GoBackButton";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../feature/cart/cartSlice";
 import IncreaseDecreaseQuantityBtn from "../ui/IncreaseDecreaseQuantityBtn";
+import toast, { Toaster } from "react-hot-toast";
 
 function ProductCatalog() {
   const [quantity, setQuantity] = useState<number>(0);
@@ -33,16 +34,23 @@ function ProductCatalog() {
   );
 
   function handleAddToCart() {
-    const newItems = {
-      id: selectedProduct?.id,
-      unitPrice: selectedProduct?.price,
-      image: selectedProduct?.image,
-      title: selectedProduct?.name,
-      quantity: quantity,
-    };
+    if (quantity === 0) {
+      return;
+    } else {
+      const newItems = {
+        id: selectedProduct?.id,
+        unitPrice: selectedProduct?.price,
+        image: selectedProduct?.image,
+        title: selectedProduct?.name,
+        quantity: quantity,
+      };
 
-    dispatch(addToCart(newItems));
-    setQuantity(0);
+      dispatch(addToCart(newItems));
+      toast.success(
+        `${quantity} Item${quantity > 1 ? "s" : ""} added to the cart!`,
+      );
+      setQuantity(0);
+    }
   }
 
   function handleDecreaseQuantity() {
@@ -91,6 +99,7 @@ function ProductCatalog() {
         >
           Add to cart
         </button>
+        <Toaster />
       </div>
 
       <article className="mt-[5.5rem]">
