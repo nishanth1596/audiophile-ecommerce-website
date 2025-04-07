@@ -16,7 +16,7 @@ function HeroSection() {
         backgroundColor="#d87d4a"
         isBorderRequired={false}
         textColor="#fff"
-        navigateTo="/comebacklater"
+        navigateTo="/headphones/4/xx99-mark-two-headphones"
       />
     </section>
   );

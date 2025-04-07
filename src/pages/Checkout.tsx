@@ -37,7 +37,6 @@ function Checkout() {
   const paymentMethod = watch("paymentMethod");
 
   const cart = useSelector(getCart);
-  console.log(cart.length);
 
   function onSubmit() {
     setIsOrderSuccess(true);
