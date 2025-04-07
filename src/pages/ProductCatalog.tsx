@@ -29,7 +29,7 @@ function ProductCatalog() {
 
   const updatedMobileImgPath = selectedProduct?.categoryImage.mobile.replace(
     "./assets/",
-    "/src/assets/",
+    "/assets/",
   );
 
   function handleAddToCart() {
@@ -120,9 +120,9 @@ function ProductCatalog() {
 
         <div className="mt-[5.5rem] flex flex-col gap-5">
           {Object.values(selectedProduct?.gallery || {}).map((image, i) => {
-            const mobile = image.mobile.replace("./assets/", "/src/assets/");
-            const tablet = image.tablet.replace("./assets/", "/src/assets/");
-            const desktop = image.desktop.replace("./assets/", "/src/assets/");
+            const mobile = image.mobile.replace("./assets/", "/assets/");
+            const tablet = image.tablet.replace("./assets/", "/assets/");
+            const desktop = image.desktop.replace("./assets/", "/assets/");
 
             return (
               <picture key={i}>

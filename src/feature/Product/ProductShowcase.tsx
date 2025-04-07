@@ -1,8 +1,8 @@
 import SeeProductNavLink from "../../ui/SeeProductNavLink";
 
-import zx9SpeakerMobileImg from "../../assets/home/mobile/image-speaker-zx9.png";
-import patternCircles from "../../assets/home/desktop/pattern-circles.svg";
-import earphonesMobileImg from "../../assets/home/mobile/image-earphones-yx1.jpg";
+import zx9SpeakerMobileImg from "/assets/home/mobile/image-speaker-zx9.png";
+import patternCircles from "/assets/home/desktop/pattern-circles.svg";
+import earphonesMobileImg from "/assets/home/mobile/image-earphones-yx1.jpg";
 
 function ProductShowcase() {
   return (

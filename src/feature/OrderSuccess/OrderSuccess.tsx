@@ -1,11 +1,12 @@
 import { createPortal } from "react-dom";
-
-import successIcon from "../../assets/checkout/icon-order-confirmation.svg";
-import CheckoutSummaryItem from "../checkout/checkoutSummaryItem";
-import { useDispatch, useSelector } from "react-redux";
-import { getCart, startNewOrder } from "../cart/cartSlice";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getCart, startNewOrder } from "../cart/cartSlice";
+
+import CheckoutSummaryItem from "../checkout/checkoutSummaryItem";
+import successIcon from "/assets/checkout/icon-order-confirmation.svg";
 
 type OrderSuccessProps = {
   setIsOrderSuccess: (value: boolean) => void;

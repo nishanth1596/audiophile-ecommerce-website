@@ -13,9 +13,9 @@ function CheckoutSummaryItem({
   price,
   quantity,
 }: CheckoutSummaryItemProps) {
-  const mobile = img.mobile?.replace("./assets/", "/src/assets/");
-  const tablet = img.tablet?.replace("./assets/", "/src/assets/");
-  const desktop = img.desktop?.replace("./assets/", "/src/assets/");
+  const mobile = img.mobile?.replace("./assets/", "/assets/");
+  const tablet = img.tablet?.replace("./assets/", "/assets/");
+  const desktop = img.desktop?.replace("./assets/", "/assets/");
 
   const formattedPrice = price.toLocaleString();
 

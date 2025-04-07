@@ -18,9 +18,9 @@ function RelatedProductsItem({
 }: RelatedProductsItem) {
   const navigate = useNavigate();
 
-  const mobile = relatedImage.mobile.replace("./assets/", "/src/assets/");
-  const tablet = relatedImage.tablet.replace("./assets/", "/src/assets/");
-  const desktop = relatedImage.desktop.replace("./assets/", "/src/assets/");
+  const mobile = relatedImage.mobile.replace("./assets/", "/assets/");
+  const tablet = relatedImage.tablet.replace("./assets/", "/assets/");
+  const desktop = relatedImage.desktop.replace("./assets/", "/assets/");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
