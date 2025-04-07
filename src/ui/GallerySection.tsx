@@ -1,7 +1,8 @@
 import GalleryCategoryCard from "./GalleryCategoryCard";
-import headphoneImg from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import speakerMobileImg from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import earphonesMobileImg from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
+
+import headphoneImg from "/assets/shared/desktop/image-category-thumbnail-headphones.png";
+import speakerMobileImg from "/assets/shared/desktop/image-category-thumbnail-speakers.png";
+import earphonesMobileImg from "/assets/shared/desktop/image-category-thumbnail-earphones.png";
 
 function GallerySection() {
   return (

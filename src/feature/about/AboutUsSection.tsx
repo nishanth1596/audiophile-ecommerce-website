@@ -1,4 +1,4 @@
-import bestGearMobileImg from "../../assets/shared/mobile/image-best-gear.jpg";
+import bestGearMobileImg from "/assets/shared/mobile/image-best-gear.jpg";
 
 function AboutUsSection() {
   return (

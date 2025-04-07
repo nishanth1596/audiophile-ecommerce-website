@@ -1,9 +1,10 @@
 import { useState } from "react";
-import hamburgerIcon from "../assets/shared/tablet/icon-hamburger.svg";
 import Logo from "./Logo";
 import Cart from "../feature/cart/Cart";
 import { useSelector } from "react-redux";
 import { getCart } from "../feature/cart/cartSlice";
+
+import hamburgerIcon from "/assets/shared/tablet/icon-hamburger.svg";
 
 function Header() {
   const [showCart, setShowCart] = useState(false);

@@ -25,7 +25,7 @@ function ProductCategoryPageItem({
 }: ProductCategoryPageItemProps) {
   // const { mobile, desktop, tablet } = productImage;
   const { mobile } = productImage;
-  const fixedMobileImagePath = mobile.replace("./assets/", "/src/assets/");
+  const fixedMobileImagePath = mobile.replace("./assets/", "/assets/");
 
   return (
     <article className="mx-6 mt-16">

@@ -17,9 +17,9 @@ type CartItem = {
 };
 
 function CartItem({ img, unitPrice, name, quantity, id }: CartItem) {
-  const mobile = img.mobile?.replace("./assets/", "/src/assets/");
-  const tablet = img.tablet?.replace("./assets/", "/src/assets/");
-  const desktop = img.desktop?.replace("./assets/", "/src/assets/");
+  const mobile = img.mobile?.replace("./assets/", "/assets/");
+  const tablet = img.tablet?.replace("./assets/", "/assets/");
+  const desktop = img.desktop?.replace("./assets/", "/assets/");
 
   const dispatch = useDispatch();
 

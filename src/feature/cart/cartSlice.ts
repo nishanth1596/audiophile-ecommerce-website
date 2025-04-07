@@ -21,54 +21,54 @@ type InitialStateProps = {
 };
 
 const initialState: InitialStateProps = {
-  //   cart: [],
-  cart: [
-    {
-      id: 1,
-      unitPrice: 2999,
-      totalPrice: 2999,
-      image: {
-        desktop:
-          "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
-        mobile:
-          "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
-        tablet:
-          "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
-      },
-      title: "XX99 MK II",
-      quantity: 1,
-    },
-    {
-      id: 2,
-      unitPrice: 899,
-      totalPrice: 1798,
-      image: {
-        desktop:
-          "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
-        mobile:
-          "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
-        tablet:
-          "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
-      },
-      title: "XX59",
-      quantity: 2,
-    },
-    {
-      id: 3,
-      unitPrice: 599,
-      totalPrice: 599,
-      image: {
-        desktop:
-          "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
-        mobile:
-          "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
-        tablet:
-          "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
-      },
-      title: "YXI",
-      quantity: 1,
-    },
-  ],
+  cart: [],
+  // cart: [
+  //   {
+  //     id: 1,
+  //     unitPrice: 2999,
+  //     totalPrice: 2999,
+  //     image: {
+  //       desktop:
+  //         "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
+  //       mobile:
+  //         "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
+  //       tablet:
+  //         "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
+  //     },
+  //     title: "XX99 MK II",
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: 2,
+  //     unitPrice: 899,
+  //     totalPrice: 1798,
+  //     image: {
+  //       desktop:
+  //         "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
+  //       mobile:
+  //         "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
+  //       tablet:
+  //         "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
+  //     },
+  //     title: "XX59",
+  //     quantity: 2,
+  //   },
+  //   {
+  //     id: 3,
+  //     unitPrice: 599,
+  //     totalPrice: 599,
+  //     image: {
+  //       desktop:
+  //         "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
+  //       mobile:
+  //         "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
+  //       tablet:
+  //         "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
+  //     },
+  //     title: "YXI",
+  //     quantity: 1,
+  //   },
+  // ],
 };
 
 const cartSlice = createSlice({
@@ -122,11 +122,20 @@ const cartSlice = createSlice({
     removeCart(state) {
       state.cart = [];
     },
+
+    startNewOrder() {
+      return initialState;
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addToCart, increaseCart, decreaseCart, removeCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  increaseCart,
+  decreaseCart,
+  removeCart,
+  startNewOrder,
+} = cartSlice.actions;
 
 export const getCart = (store: RootState) => store.cart.cart;
