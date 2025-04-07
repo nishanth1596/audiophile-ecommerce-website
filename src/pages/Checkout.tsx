@@ -6,6 +6,9 @@ import { useState } from "react";
 import OrderSuccess from "../feature/OrderSuccess/OrderSuccess";
 
 import codIcon from "../../public/assets/checkout/icon-cash-on-delivery.svg";
+import { useSelector } from "react-redux";
+import { getCart } from "../feature/cart/cartSlice";
+import EmptyCartMessage from "../feature/cart/EmptyCart";
 
 export type CheckoutFormData = {
   name: string;
@@ -32,12 +35,16 @@ function Checkout() {
   } = useForm<CheckoutFormData>();
 
   const paymentMethod = watch("paymentMethod");
-  console.log(paymentMethod);
+
+  const cart = useSelector(getCart);
+  console.log(cart.length);
 
   function onSubmit() {
     setIsOrderSuccess(true);
     reset();
   }
+
+  if (cart.length === 0) return <EmptyCartMessage />;
 
   return (
     <section className="bg-OffWhite mx-4 mt-4">
@@ -168,6 +175,12 @@ function Checkout() {
               <label
                 htmlFor="eMoney"
                 className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex items-center gap-4 rounded-lg border-[1px] px-4 py-[18px]"
+                style={{
+                  borderColor:
+                    paymentMethod === "eMoney"
+                      ? "var(--color-PrimaryColor)"
+                      : "",
+                }}
               >
                 <input
                   type="radio"
@@ -186,6 +199,10 @@ function Checkout() {
               <label
                 htmlFor="cod"
                 className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex items-center gap-4 rounded-lg border-[1px] px-4 py-[18px]"
+                style={{
+                  borderColor:
+                    paymentMethod === "cod" ? "var(--color-PrimaryColor)" : "",
+                }}
               >
                 <input
                   type="radio"
