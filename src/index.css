@@ -74,10 +74,20 @@
   background-position: center bottom;
 }
 
+.speakerBackgroundImg {
+  background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
 @media (min-width: 768px) {
   .headphoneBackgroundImg {
     background-image: url("/assets/home/tablet/image-header.jpg");
-    background-position: center;
+  }
+
+  .speakerBackgroundImg {
+    background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
   }
 }
 
@@ -86,11 +96,8 @@
     background-image: url("/assets/home/desktop/image-hero.jpg");
     background-position: center;
   }
-}
 
-.speakerBackgroundImg {
-  background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top;
+  .speakerBackgroundImg {
+    background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+  }
 }

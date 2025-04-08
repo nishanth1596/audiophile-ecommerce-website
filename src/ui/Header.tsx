@@ -52,28 +52,30 @@ function Header() {
 
   return (
     <>
-      <header className="bg-Black text-White border-b-White/10 border-b-[1px] px-6 py-8">
-        <div className="flex justify-between">
-          <button
-            onClick={handleShowMenu}
-            aria-label={
-              isMenuOpen ? "Click to close menu" : "Click to open menu"
-            }
-          >
-            <img src={hamburgerIcon} alt="" />
-          </button>
-          {isMenuOpen && (
-            <div className="bg-PureBlack/50 absolute inset-0 mt-[90px]">
-              <div
-                className="bg-White text-PureBlack/75 absolute z-10 w-full rounded-b-lg pb-9"
-                ref={menuRef}
-              >
-                <GallerySection setIsMenuOpen={setIsMenuOpen} />
+      <header className="bg-Black text-White border-b-White/10 border-b-[1px] px-6 py-8 md:px-10">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-20 sm:gap-10">
+            <button
+              onClick={handleShowMenu}
+              aria-label={
+                isMenuOpen ? "Click to close menu" : "Click to open menu"
+              }
+            >
+              <img src={hamburgerIcon} alt="" />
+            </button>
+            {isMenuOpen && (
+              <div className="bg-PureBlack/50 absolute inset-0 mt-[90px]">
+                <div
+                  className="bg-White text-PureBlack/75 absolute z-10 w-full rounded-b-lg pb-9"
+                  ref={menuRef}
+                >
+                  <GallerySection setIsMenuOpen={setIsMenuOpen} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <Logo />
+            <Logo />
+          </div>
           <button className="relative" onClick={handleShowCart}>
             <svg
               width="23"

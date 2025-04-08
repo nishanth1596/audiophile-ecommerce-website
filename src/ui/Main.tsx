@@ -6,7 +6,7 @@ function Main() {
   return (
     <main className="">
       <Outlet />
-      <GallerySection />
+      <GallerySection mobile={true} />
       <AboutUsSection />
     </main>
   );
