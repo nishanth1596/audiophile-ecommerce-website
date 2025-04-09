@@ -28,11 +28,10 @@ function Input({
   pattern,
 }: InputProps) {
   return (
-    <>
+    <div>
       <label
         htmlFor={id}
-        className="relative inline-block w-full text-xs leading-4 font-bold tracking-[-0.21px]"
-        style={{ marginTop: marginTop }}
+        className={`relative ${marginTop ? marginTop + "sm:mt-0" : ""} inline-block w-full text-xs leading-4 font-bold tracking-[-0.21px]`}
       >
         {title}
         {error && (
@@ -49,9 +48,9 @@ function Input({
           pattern: pattern,
         })}
         placeholder={placeholder}
-        className="border-MediumGray text-Black/40 mt-[9px] block w-full rounded-lg border-[1px] pt-[18px] pb-[19px] pl-6 text-sm leading-[1.19rem] font-bold tracking-[-0.25px]"
+        className="border-MediumGray text-Black/40 mt-[9px] block w-full rounded-lg border-[1px] pt-[18px] pb-[19px] pl-6 text-sm leading-[1.19rem] font-bold tracking-[-0.25px] sm:mt-0"
       />
-    </>
+    </div>
   );
 }
 
