@@ -30,7 +30,7 @@
   }
 
   .Overline {
-    @apply text-sm leading-[1.19rem] font-medium tracking-[10px] uppercase;
+    @apply text-sm leading-[1.19rem] font-medium tracking-[10px] uppercase sm:text-xs sm:leading-4 sm:tracking-[8.57px];
   }
 
   .subTitle {

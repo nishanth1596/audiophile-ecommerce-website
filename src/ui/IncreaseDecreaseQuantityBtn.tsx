@@ -13,7 +13,7 @@ function IncreaseDecreaseQuantityBtn({
 }: IncreaseDecreaseQuantityBtnProps) {
   return (
     <div
-      className={`bg-LightGray flex w-full items-center justify-center gap-5 ${isOnCart ? "max-w-24 px-3 py-1.5" : "px-[15.5px] py-[15px]"} `}
+      className={`bg-LightGray flex w-full items-center justify-center gap-5 ${isOnCart ? "max-w-24 px-3 py-1.5" : "px-[15.5px] py-[15px] sm:max-w-[120px]"} `}
     >
       <button
         className="inline-block w-4 opacity-25"

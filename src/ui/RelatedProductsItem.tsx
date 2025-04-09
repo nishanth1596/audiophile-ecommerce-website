@@ -27,7 +27,7 @@ function RelatedProductsItem({
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center gap-8 sm:gap-10">
       <picture>
         <source srcSet={mobile} media="(max-width:767px)" />
         <source
@@ -38,10 +38,12 @@ function RelatedProductsItem({
         <img src={mobile} alt="" className="rounded-lg" />
       </picture>
 
-      <h4 className="leading-[2.06rem] tracking-[1.71px]">{title}</h4>
+      <h4 className="leading-[2.06rem] tracking-[1.71px] sm:text-2xl sm:leading-[33px] sm:tracking-[1.71px]">
+        {title}
+      </h4>
       <button
         onClick={() => navigate(navigateTo)}
-        className="bg-PrimaryColor px-7 py-4 uppercase"
+        className="bg-PrimaryColor text-White px-7 py-4 uppercase"
       >
         see product
       </button>

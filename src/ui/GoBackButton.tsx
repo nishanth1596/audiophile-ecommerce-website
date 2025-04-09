@@ -6,7 +6,7 @@ function GoBackButton() {
   return (
     <button
       onClick={() => navigate(-1)}
-      className="text-PureBlack mt-4 inline-block text-[0.94rem] leading-[1.56rem] capitalize opacity-50"
+      className="text-PureBlack mt-4 inline-block text-[0.94rem] leading-[1.56rem] capitalize opacity-50 sm:mt-8"
     >
       Go back
     </button>
