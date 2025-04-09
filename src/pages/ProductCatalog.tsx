@@ -49,6 +49,7 @@ function ProductCatalog() {
         image: selectedProduct?.image,
         title: selectedProduct?.name,
         quantity: quantity,
+        slug: selectedProduct?.slug,
       };
 
       dispatch(addToCart(newItems));

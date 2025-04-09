@@ -69,7 +69,11 @@ function Header() {
                   className="bg-White text-PureBlack/75 absolute z-10 w-full rounded-b-lg pb-9"
                   ref={menuRef}
                 >
-                  <GallerySection setIsMenuOpen={setIsMenuOpen} />
+                  <GallerySection mobile={true} setIsMenuOpen={setIsMenuOpen} />
+                  <GallerySection
+                    mobile={false}
+                    setIsMenuOpen={setIsMenuOpen}
+                  />
                 </div>
               </div>
             )}

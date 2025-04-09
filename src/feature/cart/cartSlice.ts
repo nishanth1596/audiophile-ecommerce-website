@@ -14,6 +14,7 @@ export type CartItemProps = {
   image: ImageItemProps;
   title: string;
   quantity: number;
+  slug: string;
 };
 
 type InitialStateProps = {

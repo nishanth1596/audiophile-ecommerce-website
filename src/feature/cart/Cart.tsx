@@ -68,8 +68,8 @@ function Cart({ setShowCart }: CartProps) {
   }
 
   return createPortal(
-    <section className="">
-      <div className="bg-opacity-50 absolute top-0 left-0 mt-20 h-full w-full bg-black/50 backdrop-blur-md">
+    <section className="bg-opacity-50 absolute top-0 left-0 mt-20 h-full w-full bg-black/50 backdrop-blur-md">
+      <div className="sm:absolute sm:right-0 sm:max-w-[377px]">
         <div
           ref={cartRef}
           className="relative z-10 mx-6 mt-6 rounded-md bg-white px-7 py-8 shadow-lg"
