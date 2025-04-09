@@ -72,7 +72,7 @@ function ProductShowcase() {
           />
         </article>
 
-        <article className="mt-6 sm:mt-8 sm:grid sm:grid-cols-2 sm:gap-[11px]">
+        <article className="mt-6 sm:mt-8 sm:grid sm:grid-cols-2 sm:grid-rows-1 sm:gap-[11px]">
           <picture>
             <source srcSet={earphonesMobileImg} media="(max-width:767px)" />
             <source

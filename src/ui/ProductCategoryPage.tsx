@@ -66,7 +66,9 @@ function ProductCategoryPage({ name }: ProductCategoryPageProps) {
 
   return (
     <section className="text-center">
-      <h4 className="bg-PureBlack text-White py-8">{name}</h4>
+      <h4 className="bg-PureBlack text-White py-8 sm:pt-[105px] sm:pb-[97px] sm:text-[2.5rem] sm:leading-11 sm:tracking-[1.43px]">
+        {name}
+      </h4>
 
       {products.map((product: ProductProps) => (
         <ProductCategoryPageItem
