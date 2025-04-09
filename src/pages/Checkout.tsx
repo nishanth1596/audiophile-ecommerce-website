@@ -100,7 +100,7 @@ function Checkout() {
                 requiredMessage="Phone number is required"
                 error={errors?.phoneNumber?.message}
                 pattern={{
-                  value: /^\d+$/,
+                  value: /^(?:\+91[-\s]?)?[6-9]\d{9}$/,
                   message: "Wrong Format",
                 }}
               />

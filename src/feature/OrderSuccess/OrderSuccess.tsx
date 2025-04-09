@@ -35,18 +35,18 @@ function OrderSuccess({ setIsOrderSuccess }: OrderSuccessProps) {
   }, []);
 
   return createPortal(
-    <div className="bg-Black/50 absolute inset-0 items-center justify-center">
-      <div className="bg-White mx-6 mt-56 p-8">
+    <section className="bg-Black/50 absolute inset-0 items-center justify-center">
+      <div className="bg-White mx-6 mt-56 rounded-lg p-8 sm:mx-auto sm:max-w-[33.75rem] sm:p-12">
         <img src={successIcon} alt="Success Icon" />
-        <h3 className="mt-6 text-2xl leading-7 font-bold tracking-[0.86px] uppercase">
+        <h3 className="mt-6 text-2xl leading-7 font-bold tracking-[0.86px] uppercase sm:mt-8 sm:text-[2rem] sm:leading-9 sm:tracking-[1.14px]">
           Thank you <span className="block">for your order</span>
         </h3>
 
-        <p className="mt-4 opacity-50">
+        <p className="mt-4 opacity-50 sm:mt-6">
           You will receive an email confirmation shortly.
         </p>
 
-        <div className="bg-LightGray mt-6 overflow-hidden rounded-lg">
+        <div className="bg-LightGray mt-6 overflow-hidden rounded-lg sm:grid sm:grid-cols-[246fr_198fr]">
           <div className="p-6">
             <CheckoutSummaryItem
               title={cart[0].title}
@@ -62,7 +62,7 @@ function OrderSuccess({ setIsOrderSuccess }: OrderSuccessProps) {
             )}
           </div>
 
-          <h6 className="text-White bg-PureBlack px-6 pt-3.5 pb-5 leading-[1.56rem]">
+          <h6 className="text-White bg-PureBlack px-6 pt-3.5 pb-5 leading-[1.56rem] sm:flex sm:flex-col sm:justify-center">
             <span className="text-[0.94rem] font-medium uppercase opacity-50">
               Grand total
             </span>
@@ -72,12 +72,12 @@ function OrderSuccess({ setIsOrderSuccess }: OrderSuccessProps) {
 
         <button
           onClick={handleButtonClick}
-          className="bg-PrimaryColor text-White mt-6 block w-full py-4 text-[13px] leading-[18px] font-bold tracking-[1px] uppercase"
+          className="bg-PrimaryColor text-White mt-6 block w-full py-4 text-[13px] leading-[18px] font-bold tracking-[1px] uppercase sm:mt-12"
         >
           Back to home
         </button>
       </div>
-    </div>,
+    </section>,
     document.getElementById("success")!,
   );
 }
