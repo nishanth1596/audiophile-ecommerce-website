@@ -6,6 +6,7 @@ import { getCart } from "../feature/cart/cartSlice";
 
 import hamburgerIcon from "/assets/shared/tablet/icon-hamburger.svg";
 import GallerySection from "./GallerySection";
+import NavBar from "./NavBar";
 
 function Header() {
   const [showCart, setShowCart] = useState(false);
@@ -56,6 +57,7 @@ function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-20 sm:gap-10">
             <button
+              className="lg:hidden"
               onClick={handleShowMenu}
               aria-label={
                 isMenuOpen ? "Click to close menu" : "Click to open menu"
@@ -80,6 +82,9 @@ function Header() {
 
             <Logo />
           </div>
+
+          <NavBar />
+
           <button className="relative" onClick={handleShowCart}>
             <svg
               width="23"
