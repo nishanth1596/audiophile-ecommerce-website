@@ -10,7 +10,7 @@ function Layout() {
   return (
     <>
       <Header />
-      {isCheckoutPage ? <Outlet /> : <Main />}
+      <main>{isCheckoutPage ? <Outlet /> : <Main />}</main>
       <Footer />
     </>
   );

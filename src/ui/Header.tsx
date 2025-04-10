@@ -54,7 +54,7 @@ function Header() {
   return (
     <>
       <header className="bg-Black text-White border-b-White/10 border-b-[1px] px-6 py-8 md:px-10 lg:pb-9">
-        <div className="flex items-center justify-between lg:mx-auto lg:max-w-[69.34rem]">
+        <div className="flex items-center justify-between lg:max-w-[69.34rem] xl:mx-auto">
           <div className="flex items-center gap-20 sm:gap-10">
             <button
               className="lg:hidden"

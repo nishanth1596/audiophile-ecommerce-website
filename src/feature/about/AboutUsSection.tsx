@@ -5,8 +5,8 @@ import bestGearDesktopImg from "/assets/shared/desktop/image-best-gear.jpg";
 
 function AboutUsSection() {
   return (
-    <section className="mx-6 mt-[7.5rem] sm:mx-10 sm:mt-24">
-      <picture>
+    <section className="mx-6 mt-[7.5rem] sm:mx-10 sm:mt-24 lg:mx-12 lg:mt-[200px] lg:grid lg:max-w-[69.38rem] lg:grid-cols-2 lg:gap-x-[125px] xl:mx-auto">
+      <picture className="lg:order-1">
         <source srcSet={bestGearMobileImg} media="(max-width:767px)" />
         <source
           srcSet={bestGearTabletImg}
@@ -20,7 +20,7 @@ function AboutUsSection() {
         />
       </picture>
 
-      <article className="mt-10 text-center sm:mx-auto sm:mt-16 sm:max-w-[35.81rem]">
+      <article className="mt-10 text-center sm:mx-auto sm:mt-16 sm:max-w-[35.81rem] lg:mt-0 lg:flex lg:flex-col lg:justify-center lg:text-left">
         <h3 className="text-[1.75rem] leading-[2.34rem] font-bold tracking-[1px] uppercase sm:text-[2.5rem] sm:leading-11">
           Bringing you the <span className="text-PrimaryColor">best</span> audio
           gear

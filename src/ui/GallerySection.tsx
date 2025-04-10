@@ -12,7 +12,7 @@ type GallerySectionProp = {
 function GallerySection({ setIsMenuOpen, mobile }: GallerySectionProp) {
   return (
     <section
-      className={`mx-6 mt-[5.75rem] ${mobile ? "space-y-[4.25rem] sm:hidden" : "hidden sm:mx-10 sm:mt-[148px] sm:grid sm:grid-cols-3 sm:gap-x-2.5"}`}
+      className={`mx-6 mt-[5.75rem] ${mobile ? "space-y-[4.25rem] sm:hidden" : "hidden sm:mx-10 sm:mt-[148px] sm:grid sm:grid-cols-3 sm:gap-x-2.5 lg:mx-12 lg:mt-[7.5rem] lg:max-w-[69.38rem] lg:gap-x-[30px] xl:mx-auto"}`}
     >
       <GalleryCategoryCard
         image={headphoneThumbnailImg}
