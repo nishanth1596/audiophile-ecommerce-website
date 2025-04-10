@@ -13,19 +13,19 @@ function Footer() {
           home
         </Link>
         <Link
-          to="/"
+          to="/headphones"
           className="text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
         >
           headphones
         </Link>
         <Link
-          to="/"
+          to="/speakers"
           className="text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
         >
           speakers
         </Link>
         <Link
-          to="/"
+          to="/earphones"
           className="text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
         >
           earphones
