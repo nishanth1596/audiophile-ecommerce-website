@@ -66,11 +66,11 @@ function ProductCategoryPage({ name }: ProductCategoryPageProps) {
 
   return (
     <section className="text-center">
-      <h4 className="bg-PureBlack text-White py-8 sm:pt-[105px] sm:pb-[97px] sm:text-[2.5rem] sm:leading-11 sm:tracking-[1.43px]">
+      <h4 className="bg-PureBlack text-White py-8 sm:pt-[105px] sm:pb-[97px] sm:text-[2.5rem] sm:leading-11 sm:tracking-[1.43px] lg:pt-[98px]">
         {name}
       </h4>
 
-      {products.map((product: ProductProps) => (
+      {products.map((product: ProductProps, index: number) => (
         <ProductCategoryPageItem
           name={product.name}
           key={product.id}
@@ -80,6 +80,7 @@ function ProductCategoryPage({ name }: ProductCategoryPageProps) {
           slug={product.slug}
           category={product.category}
           id={product.id}
+          index={index}
         />
       ))}
     </section>

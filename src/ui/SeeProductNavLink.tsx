@@ -16,7 +16,7 @@ function SeeProductNavLink({
   return (
     <Link
       to={navigateTo}
-      className="inline-block px-8 py-4 text-[0.813rem] leading-[1.13rem] font-bold tracking-[1px] uppercase"
+      className="inline-block px-8 py-4 text-[0.813rem] leading-[1.13rem] font-bold tracking-[1px] uppercase lg:self-start"
       style={{
         backgroundColor: backgroundColor,
         color: textColor,
