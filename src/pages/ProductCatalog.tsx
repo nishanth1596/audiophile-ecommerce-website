@@ -72,10 +72,10 @@ function ProductCatalog() {
 
   return (
     <>
-      <section className="mx-6 sm:mx-10">
+      <section className="mx-6 sm:mx-10 lg:mx-12 xl:mx-auto xl:max-w-[69.38rem]">
         <GoBackButton />
 
-        <div className="mt-6 sm:grid sm:grid-cols-2 sm:gap-x-[69px]">
+        <div className="mt-6 sm:grid sm:grid-cols-2 sm:gap-x-[69px] lg:mt-14 xl:gap-x-[125px]">
           <picture>
             <source srcSet={updatedMobileImgPath} media="(max-width:767px)" />
             <source
@@ -88,13 +88,13 @@ function ProductCatalog() {
           </picture>
 
           {/* this div is for grid separation only */}
-          <div className="sm:flex sm:flex-col sm:justify-center">
+          <div className="sm:flex sm:flex-col sm:justify-center lg:max-w-[445px]">
             {selectedProduct?.new && (
               <p className="Overline text-PrimaryColor mt-8 sm:mt-0">
                 new product
               </p>
             )}
-            <h4 className="mt-6 tracking-[1px] sm:mt-4 sm:leading-[2rem] sm:tracking-[1px]">
+            <h4 className="mt-6 tracking-[1px] sm:mt-4 sm:leading-[2rem] sm:tracking-[1px] lg:text-[2.5rem] lg:leading-11">
               {selectedProduct?.name}
             </h4>
             <p className="mt-6 opacity-50 sm:mt-8">
@@ -123,38 +123,42 @@ function ProductCatalog() {
         </div>
 
         <article className="mt-[5.5rem] sm:mt-[7.5rem]">
-          <h5 className="sm:text-[2rem] sm:leading-9 sm:tracking-[1.14px]">
-            features
-          </h5>
+          <div className="lg:grid lg:grid-cols-[635fr_350fr] lg:gap-x-[125px]">
+            <div>
+              <h5 className="sm:text-[2rem] sm:leading-9 sm:tracking-[1.14px]">
+                features
+              </h5>
 
-          {selectedProduct?.features.split("\n\n").map((para, i) => (
-            <p className="mt-6 opacity-50 sm:mt-8" key={i}>
-              {para}
-            </p>
-          ))}
-
-          <div className="mt-[5.5rem] sm:mt-[7.5rem] sm:flex sm:max-w-[549px] sm:items-start sm:justify-between">
-            <h5 className="sm:text-[2rem] sm:leading-9 sm:tracking-[1.14px]">
-              In the box
-            </h5>
-
-            <ul className="mt-6 space-y-2 sm:mt-0">
-              {selectedProduct?.includes.map((items, i) => (
-                <li
-                  key={i}
-                  className="text-PureBlack space-x-6 text-[0.94rem] leading-[1.56rem] font-medium tracking-normal"
-                >
-                  <span className="text-PrimaryColor font-bold">
-                    {items.quantity}x
-                  </span>
-                  <span className="capitalize opacity-50">{items.item}</span>
-                </li>
+              {selectedProduct?.features.split("\n\n").map((para, i) => (
+                <p className="mt-6 opacity-50 sm:mt-8" key={i}>
+                  {para}
+                </p>
               ))}
-            </ul>
+            </div>
+
+            <div className="mt-[5.5rem] sm:mt-[7.5rem] sm:flex sm:max-w-[549px] sm:items-start sm:justify-between lg:mt-0 lg:flex-col lg:justify-start">
+              <h5 className="sm:text-[2rem] sm:leading-9 sm:tracking-[1.14px]">
+                In the box
+              </h5>
+
+              <ul className="mt-6 space-y-2 sm:mt-0 lg:mt-8">
+                {selectedProduct?.includes.map((items, i) => (
+                  <li
+                    key={i}
+                    className="text-PureBlack space-x-6 text-[0.94rem] leading-[1.56rem] font-medium tracking-normal"
+                  >
+                    <span className="text-PrimaryColor font-bold">
+                      {items.quantity}x
+                    </span>
+                    <span className="capitalize opacity-50">{items.item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="mt-[5.5rem] flex flex-col gap-5 sm:grid sm:grid-cols-2">
-            <div className="flex flex-col gap-5">
+          <div className="mt-[5.5rem] grid grid-cols-1 sm:grid-cols-2 sm:gap-x-5 lg:gap-x-[30px]">
+            <div className="grid grid-cols-1 gap-y-5">
               {Object.values(selectedProduct?.gallery || {})
                 .slice(0, 2)
                 .map((image, i) => {
@@ -176,14 +180,14 @@ function ProductCatalog() {
                       <img
                         src={mobile}
                         alt={`Gallery image ${i + 1}`}
-                        className="rounded-lg"
+                        className="w-full rounded-lg"
                       />
                     </picture>
                   );
                 })}
             </div>
 
-            <div>
+            <div className="">
               {selectedProduct?.gallery &&
                 (() => {
                   const image = Object.values(selectedProduct.gallery)[2];
@@ -206,7 +210,7 @@ function ProductCatalog() {
                       <img
                         src={mobile}
                         alt={"Gallery image 3"}
-                        className="rounded-lg"
+                        className="w-full rounded-lg"
                       />
                     </picture>
                   );
