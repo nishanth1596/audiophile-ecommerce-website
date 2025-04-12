@@ -13,7 +13,7 @@ function CheckoutSummary() {
   const grandTotal = cartAmount + Number(shippingCharge);
 
   return (
-    <div className="bg-White mt-8 px-6 py-8">
+    <div className="bg-White mt-8 px-6 py-8 lg:mt-0 lg:self-start">
       <h6 className="text-lg leading-[1.56rem] font-bold tracking-[1.29px] uppercase">
         Summary
       </h6>
