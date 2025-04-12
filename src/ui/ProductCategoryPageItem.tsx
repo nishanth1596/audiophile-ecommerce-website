@@ -60,9 +60,8 @@ function ProductCategoryPageItem({
         <p className="text-PureBlack my-6 opacity-50 sm:mt-8">{description}</p>
 
         <SeeProductNavLink
-          backgroundColor="#d87d4a"
+          backgroundColor="orange"
           navigateTo={`/${category}/${id}/${slug}`}
-          textColor="#fff"
           isBorderRequired={false}
         />
       </div>
