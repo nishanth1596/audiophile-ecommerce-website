@@ -46,7 +46,7 @@ function Checkout() {
   if (cart.length === 0) return <EmptyCartMessage />;
 
   return (
-    <section className="bg-OffWhite mx-4 mt-4 sm:mx-10 sm:mt-0">
+    <section className="bg-OffWhite mx-4 mt-4 sm:mx-10 sm:mt-0 lg:mx-12 xl:mx-auto xl:max-w-[69.38rem]">
       <GoBackButton />
 
       <article className="mt-6 rounded-lg pb-8">

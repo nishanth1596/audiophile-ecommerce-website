@@ -20,7 +20,8 @@ function Cart({ setShowCart }: CartProps) {
 
   const total = cart
     .map((item) => item.totalPrice)
-    .reduce((acc, cur) => acc + cur, 0);
+    .reduce((acc, cur) => acc + cur, 0)
+    .toLocaleString();
 
   const cartRef = useRef<HTMLDivElement | null>(null);
 
