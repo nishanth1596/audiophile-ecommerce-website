@@ -72,7 +72,7 @@ function OrderSuccess({ setIsOrderSuccess }: OrderSuccessProps) {
 
         <button
           onClick={handleButtonClick}
-          className="bg-PrimaryColor text-White mt-6 block w-full py-4 text-[13px] leading-[18px] font-bold tracking-[1px] uppercase sm:mt-12"
+          className="bg-PrimaryColor hover:bg-SecondaryColor text-White mt-6 block w-full cursor-pointer py-4 text-[13px] leading-[18px] font-bold tracking-[1px] uppercase sm:mt-12"
         >
           Back to home
         </button>

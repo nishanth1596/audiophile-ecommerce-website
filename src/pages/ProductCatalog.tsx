@@ -56,7 +56,7 @@ function ProductCatalog() {
       toast.success(
         `${quantity} Item${quantity > 1 ? "s" : ""} added to the cart!`,
       );
-      setQuantity(0);
+      setQuantity(1);
     }
   }
 
@@ -112,7 +112,7 @@ function ProductCatalog() {
               />
 
               <button
-                className="bg-PrimaryColor text-White w-full py-[15px] pr-[30.5px] pl-[34.5px] text-[13px] leading-[18px] font-bold tracking-[1px] uppercase sm:w-[200px]"
+                className="bg-PrimaryColor text-White hover:bg-SecondaryColor w-full cursor-pointer py-[15px] pr-[30.5px] pl-[34.5px] text-[13px] leading-[18px] font-bold tracking-[1px] uppercase transition-all duration-300 ease-in-out sm:w-[200px]"
                 onClick={handleAddToCart}
               >
                 Add to cart

@@ -82,7 +82,7 @@ function Cart({ setShowCart }: CartProps) {
             </h5>
             <button
               onClick={handleRemoveAll}
-              className="text-[0.94rem] leading-[1.56rem] font-medium underline opacity-50"
+              className="hover:text-Red cursor-pointer text-[0.94rem] leading-[1.56rem] font-medium underline opacity-50 hover:opacity-100"
             >
               Remove all
             </button>
@@ -109,7 +109,7 @@ function Cart({ setShowCart }: CartProps) {
           </p>
 
           <button
-            className="bg-PrimaryColor subTitle text-White mt-6 inline-block w-full py-4 leading-[18px] uppercase"
+            className="bg-PrimaryColor hover:bg-SecondaryColor subTitle text-White mt-6 inline-block w-full cursor-pointer py-4 leading-[18px] uppercase transition-all duration-300 ease-in-out"
             onClick={handleCheckoutButton}
           >
             checkout

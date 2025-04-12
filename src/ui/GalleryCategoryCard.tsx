@@ -37,7 +37,7 @@ function GalleryCategoryCard({
         onClick={handleButtonClick}
         className="hover:text-PrimaryColor mx-auto mt-4 flex cursor-pointer items-center justify-center gap-3.5 transition-colors duration-300 ease-in-out"
       >
-        <span className="text-[0.81rem] leading-[1.125rem] font-bold tracking-[1px] uppercase opacity-50">
+        <span className="text-[0.81rem] leading-[1.125rem] font-bold tracking-[1px] uppercase opacity-50 hover:opacity-100">
           shop
         </span>
         <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">

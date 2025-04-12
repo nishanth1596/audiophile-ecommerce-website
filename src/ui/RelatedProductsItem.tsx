@@ -43,7 +43,7 @@ function RelatedProductsItem({
       </h4>
       <button
         onClick={() => navigate(navigateTo)}
-        className="bg-PrimaryColor text-White px-7 py-4 uppercase"
+        className="bg-PrimaryColor hover:bg-SecondaryColor text-White cursor-pointer px-7 py-4 uppercase transition-all duration-300 ease-in-out"
       >
         see product
       </button>

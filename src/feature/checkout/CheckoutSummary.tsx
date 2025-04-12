@@ -57,7 +57,7 @@ function CheckoutSummary() {
         </p>
       </div>
 
-      <button className="bg-PrimaryColor text-White mt-8 w-full py-4 text-[13px] font-bold tracking-[1px] uppercase">
+      <button className="bg-PrimaryColor text-White hover:bg-SecondaryColor mt-8 w-full cursor-pointer py-4 text-[13px] font-bold tracking-[1px] uppercase">
         continue & pay
       </button>
     </div>

@@ -31,7 +31,7 @@ function Input({
     <div>
       <label
         htmlFor={id}
-        className={`relative ${marginTop ? marginTop + "sm:mt-0" : ""} inline-block w-full text-xs leading-4 font-bold tracking-[-0.21px]`}
+        className={`relative ${marginTop ? marginTop + "sm:mt-0" : ""} $ focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor inline-block w-full text-xs leading-4 font-bold tracking-[-0.21px]`}
       >
         {title}
         {error && (

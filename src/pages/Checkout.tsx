@@ -188,7 +188,7 @@ function Checkout() {
 
                 <label
                   htmlFor="eMoney"
-                  className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex items-center gap-4 rounded-lg border-[1px] px-4 py-[18px]"
+                  className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex cursor-pointer items-center gap-4 rounded-lg border-[1px] px-4 py-[18px]"
                   style={{
                     borderColor:
                       paymentMethod === "eMoney"
@@ -212,7 +212,7 @@ function Checkout() {
 
                 <label
                   htmlFor="cod"
-                  className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex items-center gap-4 rounded-lg border-[1px] px-4 py-[18px] sm:col-start-2"
+                  className="border-MediumGray focus:border-PrimaryColor active:border-PrimaryColor peer-checked:border-PrimaryColor mt-[17px] flex cursor-pointer items-center gap-4 rounded-lg border-[1px] px-4 py-[18px] sm:col-start-2"
                   style={{
                     borderColor:
                       paymentMethod === "cod"
