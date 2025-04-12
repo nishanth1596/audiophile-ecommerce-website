@@ -1,19 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 
 function Footer() {
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <footer className="bg-Black text-White mt-[7.5rem] px-6 pt-12 pb-10 text-center sm:mt-24 sm:px-10 sm:pt-[3.75rem] sm:pb-[2.88rem] sm:text-left">
       <div className="flex w-full flex-col items-center sm:items-start lg:mx-auto lg:max-w-[69.38rem]">
         <div className="lg:flex lg:w-full lg:items-center lg:justify-between">
           <Logo />
           <nav className="mt-12 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:gap-[2.13rem] lg:mt-0">
-            <Link
-              to="/"
-              className="text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
+            <button
+              onClick={handleButtonClick}
+              className="cursor-pointer text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
             >
               home
-            </Link>
+            </button>
             <Link
               to="/headphones"
               className="text-[0.81rem] leading-[1.56rem] font-bold tracking-[2px] uppercase"
