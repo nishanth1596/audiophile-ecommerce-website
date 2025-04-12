@@ -15,9 +15,8 @@ function HeroSection() {
           </p>
 
           <SeeProductNavLink
-            backgroundColor="#d87d4a"
+            backgroundColor="orange"
             isBorderRequired={false}
-            textColor="#fff"
             navigateTo="/headphones/4/xx99-mark-two-headphones"
           />
         </div>

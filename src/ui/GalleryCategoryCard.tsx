@@ -35,7 +35,7 @@ function GalleryCategoryCard({
 
       <button
         onClick={handleButtonClick}
-        className="mx-auto mt-4 flex items-center justify-center gap-3.5"
+        className="hover:text-PrimaryColor mx-auto mt-4 flex cursor-pointer items-center justify-center gap-3.5 transition-colors duration-300 ease-in-out"
       >
         <span className="text-[0.81rem] leading-[1.125rem] font-bold tracking-[1px] uppercase opacity-50">
           shop

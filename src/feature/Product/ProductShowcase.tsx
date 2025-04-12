@@ -57,8 +57,7 @@ function ProductShowcase() {
 
             <SeeProductNavLink
               navigateTo="speakers/6/zx9-speaker"
-              backgroundColor="#000000"
-              textColor="#fff"
+              backgroundColor="black"
               isBorderRequired={false}
             />
           </div>
@@ -68,8 +67,7 @@ function ProductShowcase() {
           <h4 className="mb-8">ZX7 speaker</h4>
           <SeeProductNavLink
             navigateTo="/speakers/5/zx7-speaker"
-            backgroundColor=" #f1f1f1"
-            textColor="#000"
+            backgroundColor="lightGray"
             isBorderRequired={true}
           />
         </article>
@@ -92,9 +90,8 @@ function ProductShowcase() {
           <div className="bg-LightGray mt-6 rounded-lg px-6 py-10 sm:mt-0 sm:py-[6.31rem] sm:pl-[51px]">
             <h4 className="mb-8">yx1 Earphones</h4>
             <SeeProductNavLink
-              backgroundColor="#f1f1f1"
+              backgroundColor="lightGray"
               navigateTo="/earphones/1/yx1-earphones"
-              textColor="#000"
               isBorderRequired={true}
             />
           </div>
